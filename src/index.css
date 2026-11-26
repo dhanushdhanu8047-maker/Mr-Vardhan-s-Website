@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-midnight: #070B16;
+  --color-navy: #0D1426;
+  --color-charcoal: #121826;
+  --color-champagne: #E5C76B;
+  --color-gold: #D4AF37;
+  --color-ivory: #F7F3E9;
+  --color-ivory-muted: #B8B0A0;
+}
+
+@layer base {
+  html {
+    background-color: #070B16;
+    color: #F7F3E9;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070B16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(229, 199, 107, 0.22);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(229, 199, 107, 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Gentle golden shimmer for primary surprise CTA */
+@keyframes gold-sheen {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+.animate-gold-sheen {
+  animation: gold-sheen 3.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
